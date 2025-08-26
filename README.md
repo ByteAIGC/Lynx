@@ -1,70 +1,102 @@
-# Figma Make Local Runner
+# Lynx - High-Fidelity Identity-Preserving Video Generation
 
-A skeleton project designed to run code downloaded from Figma Make locally, so you can easily modify the generated code with your favorite tools.
+A React-based academic demo page showcasing the Lynx model for high-fidelity identity-preserving video generation from single images.
 
-## ⚡ How It Works
+## Prerequisites
 
-1. **Pre-installed Packages**  
-   This project comes with many packages that Figma Make-generated code may require (see `package.json`). If you encounter errors about missing dependencies, simply install the required packages using `npm install <package-name>`.
+Before running this project, you need to install Node.js and npm on your system.
 
-2. **Automatic Removal of Version Specifiers in Imports**  
-   Figma Make sometimes generates import statements with explicit version specifiers, for example:
+### Installing Node.js and npm
 
-   ```js
-   import { Slot } from "@radix-ui/react-slot@1.1.2";
+#### Windows
+1. Visit [nodejs.org](https://nodejs.org/)
+2. Download the LTS version (recommended for most users)
+3. Run the installer and follow the setup wizard
+4. Verify installation by opening Command Prompt and running:
+   ```cmd
+   node --version
+   npm --version
    ```
 
-   This can cause version conflicts or issues with local development.  
-   **Solution:**  
-   This project uses a custom Vite plugin that automatically removes version specifiers from import statements during build and development.  
-   The above import will be transformed to:
-
-   ```js
-   import { Slot } from "@radix-ui/react-slot";
+#### macOS
+**Option 1: Direct Download**
+1. Visit [nodejs.org](https://nodejs.org/)
+2. Download the LTS version
+3. Run the `.pkg` installer
+4. Verify installation in Terminal:
+   ```bash
+   node --version
+   npm --version
    ```
 
-   This ensures compatibility with the dependencies installed in your project.
-
-   > If you still see errors about missing packages, install them manually as needed.
-
-## 📋 Prerequisites
-
-Before you begin, ensure you have the following installed:
-
-- [Node.js](https://nodejs.org/) (version 18 or higher)
-- [npm](https://www.npmjs.com/) (comes with Node.js)
-
-## 🛠️ Installation & Setup
-
-### 1. Clone the Repository
-
+**Option 2: Using Homebrew** (if you have Homebrew installed)
 ```bash
-git clone https://github.com/likang/figma-make-local-runner
-cd figma-make-local-runner
+brew install node
 ```
 
-### 2. Download Code from Figma Make
-
-1. Export your code from Figma Make
-2. Decompress the downloaded files
-3. Copy all the files and folders into the `src` directory of this project
-
-**Important**: Make sure to replace or merge with the existing files in the `src` folder. The current `src` folder contains a demo application that you should replace with your Figma Make code.
-
-### 3. Install Dependencies
-
+#### Linux (Ubuntu/Debian)
 ```bash
-npm install
+# Update package index
+sudo apt update
+
+# Install Node.js and npm
+sudo apt install nodejs npm
+
+# Verify installation
+node --version
+npm --version
 ```
 
-### 4. Start Development Server
-
+#### Linux (CentOS/RHEL/Fedora)
 ```bash
-npm run dev
+# For CentOS/RHEL
+sudo yum install nodejs npm
+
+# For Fedora
+sudo dnf install nodejs npm
+
+# Verify installation
+node --version
+npm --version
 ```
 
-The application will be available at `http://localhost:5173` (or another port if 5173 is occupied).
+## Running the Project
 
-## 📄 License
+1. **Clone or download this repository** to your computer
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+2. **Open terminal/command prompt** and navigate to the project folder:
+   ```bash
+   cd path/to/lynx_page
+   ```
+
+3. **Install project dependencies**:
+   ```bash
+   npm install
+   ```
+   This will download all required packages (may take a few minutes)
+
+4. **Start the development server**:
+   ```bash
+   npm run dev
+   ```
+
+5. **View the page**:
+   - The terminal will show a URL like `http://localhost:3000`
+   - Open this URL in your web browser
+   - The page should load with the Lynx demo content
+
+## Troubleshooting
+
+- If you get permission errors on Linux/macOS, you might need to use `sudo` with the npm commands
+- If port 3000 is busy, Vite will automatically use the next available port
+- Make sure you're in the correct project directory when running commands
+- If `npm install` fails, try deleting `node_modules` folder and `package-lock.json`, then run `npm install` again
+
+## Building for Production
+
+To create a production build:
+```bash
+npm run build
+```
+
+The built files will be in the `build/` folder, ready for deployment to any web server.
