@@ -53,7 +53,7 @@ export default function App() {
       <section className="video-teaser-section">
         <div className="video-teaser-background">
           <video muted loop autoPlay playsInline>
-            <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4" type="video/mp4" />
+            <source src="assets/teaser.mp4" type="video/mp4" />
           </video>
         </div>
         <div className="video-teaser-overlay"></div>
@@ -84,7 +84,7 @@ export default function App() {
           <div className="prompt-wrap">
             <div className="video-container-large">
               <video muted loop autoPlay playsInline>
-                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+                <source src="assets/converted/concat_synthesis_00002_0019-fr121-s42.mp4" type="video/mp4" />
               </video>
             </div>
             <div className="prompt-large">A professional businesswoman with confident posture walking through a modern corporate office, wearing an elegant navy blue suit. The camera follows her as she moves past glass conference rooms and contemporary furniture, with warm lighting creating a sophisticated atmosphere.</div>
@@ -93,7 +93,7 @@ export default function App() {
           <div className="prompt-wrap">
             <div className="video-container-large">
               <video muted loop autoPlay playsInline>
-                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4" />
+                <source src="assets/converted/concat_diverse_05_Caucasian_0005-fr121-s42.mp4" type="video/mp4" />
               </video>
             </div>
             <div className="prompt-large">A young artist painting outdoors in a serene park setting, wearing casual clothing and focused intently on their canvas. Golden hour lighting filters through the trees, creating beautiful shadows as they carefully apply brushstrokes to capture the natural scenery.</div>
@@ -102,7 +102,7 @@ export default function App() {
           <div className="prompt-wrap">
             <div className="video-container-large">
               <video muted loop autoPlay playsInline>
-                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
+                <source src="assets/converted/concat_diverse_20_Brown_0012-fr121-s42.mp4" type="video/mp4" />
               </video>
             </div>
             <div className="prompt-large">A skilled chef in a bustling restaurant kitchen, expertly preparing a gourmet dish with precise movements. Steam rises from the pan as they add ingredients, their face showing concentration and passion for culinary artistry under the bright kitchen lights.</div>
@@ -111,7 +111,7 @@ export default function App() {
           <div className="prompt-wrap">
             <div className="video-container-large">
               <video muted loop autoPlay playsInline>
-                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4" type="video/mp4" />
+                <source src="assets/converted/concat_diverse_12_Asian_0001-fr121-s42.mp4" type="video/mp4" />
               </video>
             </div>
             <div className="prompt-large">A musician performing on stage with dramatic stage lighting, passionately playing guitar in front of an enthusiastic crowd. The spotlights create dynamic shadows and highlights, capturing the energy and emotion of the live performance.</div>
@@ -120,7 +120,7 @@ export default function App() {
           <div className="prompt-wrap">
             <div className="video-container-large">
               <video muted loop autoPlay playsInline>
-                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4" type="video/mp4" />
+                <source src="assets/converted/concat_diverse_06_African_American_0001-fr121-s42.mp4" type="video/mp4" />
               </video>
             </div>
             <div className="prompt-large">A fitness trainer leading an outdoor workout session in a beautiful park, demonstrating exercises with enthusiasm and energy. The morning sunlight creates a vibrant atmosphere as they motivate and guide their students through the routine.</div>
@@ -129,7 +129,7 @@ export default function App() {
           <div className="prompt-wrap">
             <div className="video-container-large">
               <video muted loop autoPlay playsInline>
-                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4" type="video/mp4" />
+                <source src="assets/converted/concat_celebrity_00003_0006-fr121-s42.mp4" type="video/mp4" />
               </video>
             </div>
             <div className="prompt-large">A scientist working in a state-of-the-art laboratory, carefully conducting experiments with advanced equipment. The clean, sterile environment is illuminated by bright fluorescent lights as they analyze samples and record their findings with methodical precision.</div>
@@ -161,7 +161,7 @@ export default function App() {
               <div className="prompt-wrap">
                 <div className="video-container">
                   <video muted loop autoPlay playsInline>
-                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4" type="video/mp4" />
+                    <source src="assets/converted/concat_celebrity_00003_0012-fr121-s42.mp4" type="video/mp4" />
                   </video>
                 </div>
                 <div className="prompt">A fashion model gracefully walking down a runway during a high-end fashion show, wearing an elegant evening gown. The sophisticated lighting and camera angles capture every detail of the fabric's texture and movement, showcasing the garment's flowing silhouette in stunning high resolution.</div>
@@ -172,7 +172,7 @@ export default function App() {
               <div className="prompt-wrap">
                 <div className="video-container">
                   <video muted loop autoPlay playsInline>
-                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4" type="video/mp4" />
+                    <source src="assets/converted/concat_diverse_13_Asian_0004-fr121-s42.mp4" type="video/mp4" />
                   </video>
                 </div>
                 <div className="prompt">A portrait photographer in their studio, adjusting professional lighting equipment and carefully positioning a subject for the perfect shot. The controlled environment allows for precise capture of facial details and expressions in stunning high resolution with exceptional clarity.</div>
@@ -183,7 +183,7 @@ export default function App() {
               <div className="prompt-wrap">
                 <div className="video-container">
                   <video muted loop autoPlay playsInline>
-                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4" type="video/mp4" />
+                    <source src="assets/converted/concat_diverse_13_Asian_0012-fr121-s42.mp4" type="video/mp4" />
                   </video>
                 </div>
                 <div className="prompt">A master watchmaker meticulously assembling intricate timepieces in their workshop, with every detail of their focused craftsmanship captured in ultra-high definition. The precision tools and delicate movements are rendered with exceptional visual fidelity and identity preservation.</div>
@@ -194,7 +194,7 @@ export default function App() {
               <div className="prompt-wrap">
                 <div className="video-container">
                   <video muted loop autoPlay playsInline>
-                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4" type="video/mp4" />
+                    <source src="assets/converted/concat_celebrity_00003_0001-fr121-s42.mp4" type="video/mp4" />
                   </video>
                 </div>
                 <div className="prompt">A luxury car designer reviewing blueprints and clay models in a state-of-the-art design studio, surrounded by cutting-edge automotive technology. Every facial expression and gesture is captured with remarkable detail and consistency throughout the high-resolution sequence.</div>
@@ -205,7 +205,7 @@ export default function App() {
               <div className="prompt-wrap">
                 <div className="video-container">
                   <video muted loop autoPlay playsInline>
-                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4" type="video/mp4" />
+                    <source src="assets/converted/concat_diverse_20_Brown_0019-fr121-s42.mp4" type="video/mp4" />
                   </video>
                 </div>
                 <div className="prompt">An architectural specialist conducting detailed building inspections, examining structural elements with professional precision. The high-resolution capture showcases both the technical expertise and the consistent identity preservation across complex environmental conditions.</div>
@@ -216,7 +216,7 @@ export default function App() {
               <div className="prompt-wrap">
                 <div className="video-container">
                   <video muted loop autoPlay playsInline>
-                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
+                    <source src="assets/converted/concat_diverse_13_Asian_0005-fr121-s42.mp4" type="video/mp4" />
                   </video>
                 </div>
                 <div className="prompt">A master sommelier conducting an exclusive wine tasting session in an elegant cellar environment, demonstrating refined palate expertise. The high-resolution footage captures subtle facial expressions and professional techniques with exceptional visual clarity and identity consistency.</div>
@@ -227,7 +227,7 @@ export default function App() {
               <div className="prompt-wrap">
                 <div className="video-container">
                   <video muted loop autoPlay playsInline>
-                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4" type="video/mp4" />
+                    <source src="assets/converted/concat_celebrity_00003_0014-fr121-s42.mp4" type="video/mp4" />
                   </video>
                 </div>
                 <div className="prompt">A renowned neurosurgeon preparing for a complex medical procedure, reviewing imaging data and surgical plans with intense concentration. The ultra-high definition capture preserves every detail of their professional expertise while maintaining perfect identity consistency throughout.</div>
@@ -238,7 +238,7 @@ export default function App() {
               <div className="prompt-wrap">
                 <div className="video-container">
                   <video muted loop autoPlay playsInline>
-                    <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4" type="video/mp4" />
+                    <source src="assets/converted/concat_celebrity_00003_0017-fr121-s42.mp4" type="video/mp4" />
                   </video>
                 </div>
                 <div className="prompt">A professional cinematographer operating advanced camera equipment during a high-budget film production, orchestrating complex shots with artistic vision. The high-resolution video showcases technical mastery while preserving facial identity with remarkable precision and clarity.</div>
@@ -299,7 +299,7 @@ export default function App() {
           <div className="prompt-wrap">
             <div className="video-container">
               <video muted loop autoPlay playsInline>
-                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/TearsOfSteel.mp4" type="video/mp4" />
+                <source src="assets/converted/concat_diverse_20_Brown_0006-fr121-s42.mp4" type="video/mp4" />
               </video>
             </div>
             <div className="prompt">Baseline: A person walking in an urban environment, showing inconsistent facial features and identity drift over time due to limited identity preservation capabilities.</div>
@@ -308,7 +308,7 @@ export default function App() {
           <div className="prompt-wrap">
             <div className="video-container">
               <video muted loop autoPlay playsInline>
-                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/VolkswagenGTIReview.mp4" type="video/mp4" />
+                <source src="assets/converted/concat_synthesis_00002_0019-fr121-s42.mp4" type="video/mp4" />
               </video>
             </div>
             <div className="prompt">Previous SOTA: A person in a professional setting with improved identity consistency compared to baseline, but still showing some facial feature variations and temporal inconsistencies.</div>
@@ -317,7 +317,7 @@ export default function App() {
           <div className="prompt-wrap">
             <div className="video-container">
               <video muted loop autoPlay playsInline>
-                <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4" type="video/mp4" />
+                <source src="assets/converted/concat_diverse_05_Caucasian_0005-fr121-s42.mp4" type="video/mp4" />
               </video>
             </div>
             <div className="prompt">Lynx (Ours): A person engaged in dynamic activities while maintaining perfect identity consistency and natural expressions throughout the entire video sequence, demonstrating superior preservation quality.</div>
