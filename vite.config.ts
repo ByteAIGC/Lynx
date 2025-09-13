@@ -6,6 +6,10 @@
   export default defineConfig({
     plugins: [react()],
     base: '/Lynx/',       // important for GH Pages project sites
+    build: {
+      outDir: "dist",      // change this from 'build' to 'dist'
+      emptyOutDir: true,
+    },
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
       alias: {
