@@ -5,7 +5,7 @@
 
   export default defineConfig({
     plugins: [react()],
-    base: '/lynx_page/',       // important for GH Pages project sites
+    base: '/Lynx/',       // important for GH Pages project sites
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
       alias: {
