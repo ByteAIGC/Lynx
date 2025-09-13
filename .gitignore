@@ -1,5 +1,20 @@
+# Dependencies
+node_modules/
+
+# Build outputs (ignore in source branch only – leading / is important)
+# Your deploy script will copy built files to a separate worktree without these ignores.
+#/dist
+#/build
+/dist
+/build
+/dist-ssr
+
+# Environment
+.env*
+*.local
+
 # Logs
-logs
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -7,18 +22,14 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
+# Editor / OS
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
