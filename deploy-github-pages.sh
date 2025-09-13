@@ -1,82 +1,84 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -euo pipefail
 
-echo "Deploying Lynx to GitHub Pages"
+# --- Config ---
+DEFAULT_REPO_URL="git@github.com:ByteAIGC/Lynx.git"
+REPO_URL="${1:-$DEFAULT_REPO_URL}"     # optional override: ./deploy.sh <repo-url>
+PUBLISH_BRANCH="gh-pages"
+COMMIT_MESSAGE="Publish build - $(date '+%Y-%m-%d %H:%M:%S %Z')"
+# --------------
 
-# -------- Safe defaults --------
-: "${DEFAULT_REPO_URL:=git@github.com:ByteAIGC/Lynx.git}"
-: "${REPO_URL:=${1:-$DEFAULT_REPO_URL}}"
-: "${PUBLISH_BRANCH:=gh-pages}"
-: "${PUBLISH_DIR:=.gh-pages}"
-: "${COMMIT_MESSAGE:=Deploy to GitHub Pages - $(date)}"
-# -------------------------------
+log()  { printf 'ℹ️  %s\n' "$*"; }
+ok()   { printf '✅ %s\n' "$*"; }
+warn() { printf '⚠️  %s\n' "$*"; }
+err()  { printf '❌ %s\n' "$*"; }
 
-log()  { printf '%s\n' "INFO  $*"; }
-ok()   { printf '%s\n' "OK    $*"; }
-warn() { printf '%s\n' "WARN  $*"; }
-fail() { printf '%s\n' "ERROR $*"; exit 1; }
-
-# Ensure bash locale is plain ASCII to avoid surprises
-export LC_ALL=C
-
-# Git init / remote
-if [ ! -d .git ]; then git init; fi
+# 1) Ensure repo + correct remote
+if [ ! -d .git ]; then
+  log "Initializing git repo…"
+  git init
+fi
 if git remote get-url origin >/dev/null 2>&1; then
   cur="$(git remote get-url origin)"
-  if [ "$cur" != "${REPO_URL}" ]; then git remote set-url origin "${REPO_URL}"; fi
+  if [ "$cur" != "$REPO_URL" ]; then
+    log "Updating remote origin to $REPO_URL (was $cur)…"
+    git remote set-url origin "$REPO_URL"
+  fi
 else
-  git remote add origin "${REPO_URL}"
+  log "Adding remote origin $REPO_URL…"
+  git remote add origin "$REPO_URL"
 fi
 ok "Origin: $(git remote get-url origin)"
 
-# Install & build
-if [ ! -d node_modules ]; then log "Installing deps"; npm install; fi
-log "Building"; npm run build
+# 2) Install deps if needed
+if [ ! -d node_modules ]; then
+  log "Installing dependencies…"
+  npm install
+fi
 
-# Detect output
+# 3) Build
+log "Building site…"
+npm run build
+
+# 4) Detect build folder (Vite usually 'dist', you were using 'build')
+BUILD_DIR=""
 if [ -d dist ]; then BUILD_DIR="dist"
 elif [ -d build ]; then BUILD_DIR="build"
-else fail "No build output found (dist/ or build/)"; fi
-ok "Using build dir: ${BUILD_DIR}"
-
-# Clean stale worktree if present
-if [ -e "${PUBLISH_DIR}" ]; then
-  git worktree remove --force "${PUBLISH_DIR}" 2>/dev/null || { rm -rf "${PUBLISH_DIR}"; git worktree prune; }
-fi
-
-# Prepare worktree
-log "Preparing worktree at ${PUBLISH_DIR} for branch ${PUBLISH_BRANCH}"
-git fetch origin "${PUBLISH_BRANCH}" || true
-if git show-ref --verify --quiet "refs/heads/${PUBLISH_BRANCH}"; then
-  git worktree add -B "${PUBLISH_BRANCH}" "${PUBLISH_DIR}" "origin/${PUBLISH_BRANCH}" 2>/dev/null || \
-  git worktree add -B "${PUBLISH_BRANCH}" "${PUBLISH_DIR}"
 else
-  git worktree add -B "${PUBLISH_BRANCH}" "${PUBLISH_DIR}"
+  err "No build output found (expected 'dist/' or 'build/')."
+  exit 1
 fi
-ok "Worktree ready: ${PUBLISH_DIR}"
+ok "Using build dir: $BUILD_DIR"
 
-# Sync files (mirror)
-log "Syncing build to ${PUBLISH_DIR}"
-if command -v rsync >/dev/null 2>&1; then
-  rsync -av --delete "${BUILD_DIR}/" "${PUBLISH_DIR}/"
-else
-  # Safe delete without odd globs
-  find "${PUBLISH_DIR}" -mindepth 1 -maxdepth 1 -exec rm -rf {} +
-  cp -a "${BUILD_DIR}/." "${PUBLISH_DIR}/"
-fi
+# 5) Ensure Pages helpers in build
+: > "$BUILD_DIR/.nojekyll"
+# Uncomment for client-side routing:
+# [ -f "$BUILD_DIR/index.html" ] && cp "$BUILD_DIR/index.html" "$BUILD_DIR/404.html"
 
-# Ensure publish branch has no ignores/Jekyll blocking
-: > "${PUBLISH_DIR}/.gitignore"
-: > "${PUBLISH_DIR}/.nojekyll"
-# Optional SPA routing:
-# [ -f "${PUBLISH_DIR}/index.html" ] && cp "${PUBLISH_DIR}/index.html" "${PUBLISH_DIR}/404.html"
+# 6) Show what we’re about to publish
+log "Build size:"
+du -sh "$BUILD_DIR" || true
+log "Sample of files to publish:"
+find "$BUILD_DIR" -maxdepth 2 -type f | head -n 10 || true
 
-# Commit & push
-pushd "${PUBLISH_DIR}" >/dev/null
-git add -A
-git commit -m "${COMMIT_MESSAGE}" || warn "No changes to commit"
-log "Pushing to ${PUBLISH_BRANCH}"
-git push origin "${PUBLISH_BRANCH}"
-popd >/dev/null
+# 7) Publish via orphan branch (cleanest)
+CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD || echo main)"
+log "Publishing to $PUBLISH_BRANCH (orphan)…"
+git checkout --orphan "$PUBLISH_BRANCH" 2>/dev/null || git checkout --orphan "$PUBLISH_BRANCH"
 
-ok "Done: https://byteaigc.github.io/Lynx/"
+# Clear the index (orphan branch has no tree yet) and add only build files
+# Use work-tree to avoid copying build into repo
+git --work-tree "$BUILD_DIR" add --all
+# Commit with your configured identity
+git -c user.name="$(git config user.name)" -c user.email="$(git config user.email)" \
+  commit -m "$COMMIT_MESSAGE" || warn "Nothing to commit (no changes vs last deploy)"
+
+# Force-push (deploy branch is build artifact; overwrite is expected)
+log "Pushing $PUBLISH_BRANCH to $(git remote get-url origin)…"
+git push -f origin "$PUBLISH_BRANCH"
+
+# 8) Return to your source branch and clean up the orphan state locally
+git checkout -f "$CURRENT_BRANCH"
+git branch -D "$PUBLISH_BRANCH" 2>/dev/null || true
+
+ok "Deployed!  https://byteaigc.github.io/Lynx/"
