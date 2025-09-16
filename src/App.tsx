@@ -304,6 +304,152 @@ export default function App() {
       </section>
 
 
+      {/* Performance Evaluation */}
+      <section className="max-w-[1920px] mx-auto px-4 md:px-[10%] mb-[100px]">
+        <h3 className="text-xl font-semibold py-5 mb-5">
+          Quantitative Evaluation
+        </h3>
+        <p className="text-base font-light text-[#999999] leading-relaxed mb-8">
+          Quantitative comparison demonstrates Lynx's superior performance across multiple evaluation metrics,
+          achieving state-of-the-art results in identity preservation and overall video quality.
+        </p>
+
+        <div className="space-y-12">
+          {/* Tables Row */}
+          <div className="flex flex-col md:flex-row gap-4">
+            {/* Table 1: Face Resemblance */}
+            <div className="md:w-1/2 flex-shrink-0">
+              <h4 className="text-base font-medium mb-4 text-center">Face Resemblance</h4>
+              <div className="overflow-x-auto">
+                <table className="w-full bg-gray-900 border border-gray-700 rounded-lg text-xs">
+                  <thead>
+                    <tr className="border-b border-gray-700">
+                      <th className="px-2 py-3 text-left font-medium text-white border-r border-gray-700 text-xs">Model</th>
+                      <th className="px-1 py-3 text-center font-medium text-white border-r border-gray-700 text-xs">facexlib</th>
+                      <th className="px-1 py-3 text-center font-medium text-white border-r border-gray-700 text-xs">Insightface</th>
+                      <th className="px-1 py-3 text-center font-medium text-white text-xs">In-house</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="border-b border-gray-800">
+                      <td className="px-2 py-2 text-[#999999] border-r border-gray-700 text-xs">SkyReels-A2</td>
+                      <td className="px-1 py-2 text-center text-[#999999] border-r border-gray-700 text-xs"><span className="underline">0.715</span></td>
+                      <td className="px-1 py-2 text-center text-[#999999] border-r border-gray-700 text-xs"><span className="underline">0.678</span></td>
+                      <td className="px-1 py-2 text-center text-[#999999] text-xs"><span className="underline">0.725</span></td>
+                    </tr>
+                    <tr className="border-b border-gray-800">
+                      <td className="px-2 py-2 text-[#999999] border-r border-gray-700 text-xs">VACE</td>
+                      <td className="px-1 py-2 text-center text-[#999999] border-r border-gray-700 text-xs">0.594</td>
+                      <td className="px-1 py-2 text-center text-[#999999] border-r border-gray-700 text-xs">0.548</td>
+                      <td className="px-1 py-2 text-center text-[#999999] text-xs">0.615</td>
+                    </tr>
+                    <tr className="border-b border-gray-800">
+                      <td className="px-2 py-2 text-[#999999] border-r border-gray-700 text-xs">Phantom</td>
+                      <td className="px-1 py-2 text-center text-[#999999] border-r border-gray-700 text-xs">0.664</td>
+                      <td className="px-1 py-2 text-center text-[#999999] border-r border-gray-700 text-xs">0.659</td>
+                      <td className="px-1 py-2 text-center text-[#999999] text-xs">0.689</td>
+                    </tr>
+                    <tr className="border-b border-gray-800">
+                      <td className="px-2 py-2 text-[#999999] border-r border-gray-700 text-xs">MAGREF</td>
+                      <td className="px-1 py-2 text-center text-[#999999] border-r border-gray-700 text-xs">0.575</td>
+                      <td className="px-1 py-2 text-center text-[#999999] border-r border-gray-700 text-xs">0.510</td>
+                      <td className="px-1 py-2 text-center text-[#999999] text-xs">0.591</td>
+                    </tr>
+                    <tr className="border-b border-gray-700">
+                      <td className="px-2 py-2 text-[#999999] border-r border-gray-700 text-xs">Stand-In</td>
+                      <td className="px-1 py-2 text-center text-[#999999] border-r border-gray-700 text-xs">0.611</td>
+                      <td className="px-1 py-2 text-center text-[#999999] border-r border-gray-700 text-xs">0.576</td>
+                      <td className="px-1 py-2 text-center text-[#999999] text-xs">0.634</td>
+                    </tr>
+                    <tr className="bg-gray-800">
+                      <td className="px-2 py-2 text-white font-medium border-r border-gray-700 text-xs">Lynx (ours)</td>
+                      <td className="px-1 py-2 text-center text-white font-bold border-r border-gray-700 text-xs">0.779</td>
+                      <td className="px-1 py-2 text-center text-white font-bold border-r border-gray-700 text-xs">0.699</td>
+                      <td className="px-1 py-2 text-center text-white font-bold text-xs">0.781</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Table 2: Overall Comparison */}
+            <div className="md:w-1/2 flex-shrink-0">
+              <h4 className="text-base font-medium mb-4 text-center">Overall Performance</h4>
+              <div className="overflow-x-auto">
+                <table className="w-full bg-gray-900 border border-gray-700 rounded-lg text-xs">
+                  <thead>
+                    <tr className="border-b border-gray-700">
+                      <th className="px-2 py-3 text-left font-medium text-white border-r border-gray-700 text-xs">Model</th>
+                      <th className="px-1 py-3 text-center font-medium text-white border-r border-gray-700 text-xs">Prompt</th>
+                      <th className="px-1 py-3 text-center font-medium text-white border-r border-gray-700 text-xs">Aesthetic</th>
+                      <th className="px-1 py-3 text-center font-medium text-white border-r border-gray-700 text-xs">Motion</th>
+                      <th className="px-1 py-3 text-center font-medium text-white text-xs">Quality</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="border-b border-gray-800">
+                      <td className="px-2 py-3 text-[#999999] border-r border-gray-700 text-sm">SkyReels-A2</td>
+                      <td className="px-1 py-2 text-center text-[#999999] border-r border-gray-700 text-xs">0.471</td>
+                      <td className="px-1 py-2 text-center text-[#999999] border-r border-gray-700 text-xs">0.704</td>
+                      <td className="px-1 py-2 text-center text-[#999999] border-r border-gray-700 text-xs">0.824</td>
+                      <td className="px-1 py-2 text-center text-[#999999] text-xs">0.870</td>
+                    </tr>
+                    <tr className="border-b border-gray-800">
+                      <td className="px-2 py-3 text-[#999999] border-r border-gray-700 text-sm">VACE</td>
+                      <td className="px-1 py-2 text-center text-[#999999] border-r border-gray-700 text-xs"><span className="underline">0.691</span></td>
+                      <td className="px-1 py-2 text-center text-[#999999] border-r border-gray-700 text-xs"><span className="underline">0.846</span></td>
+                      <td className="px-1 py-2 text-center text-white font-bold border-r border-gray-700 text-xs">0.851</td>
+                      <td className="px-1 py-2 text-center text-[#999999] text-xs"><span className="underline">0.935</span></td>
+                    </tr>
+                    <tr className="border-b border-gray-800">
+                      <td className="px-2 py-3 text-[#999999] border-r border-gray-700 text-sm">Phantom</td>
+                      <td className="px-1 py-2 text-center text-[#999999] border-r border-gray-700 text-xs">0.690</td>
+                      <td className="px-1 py-2 text-center text-[#999999] border-r border-gray-700 text-xs">0.825</td>
+                      <td className="px-1 py-2 text-center text-[#999999] border-r border-gray-700 text-xs">0.828</td>
+                      <td className="px-1 py-2 text-center text-[#999999] text-xs">0.888</td>
+                    </tr>
+                    <tr className="border-b border-gray-800">
+                      <td className="px-2 py-3 text-[#999999] border-r border-gray-700 text-sm">MAGREF</td>
+                      <td className="px-1 py-2 text-center text-[#999999] border-r border-gray-700 text-xs">0.612</td>
+                      <td className="px-1 py-2 text-center text-[#999999] border-r border-gray-700 text-xs">0.787</td>
+                      <td className="px-1 py-2 text-center text-[#999999] border-r border-gray-700 text-xs">0.812</td>
+                      <td className="px-1 py-2 text-center text-[#999999] text-xs">0.886</td>
+                    </tr>
+                    <tr className="border-b border-gray-700">
+                      <td className="px-2 py-3 text-[#999999] border-r border-gray-700 text-sm">Stand-In</td>
+                      <td className="px-1 py-2 text-center text-[#999999] border-r border-gray-700 text-xs">0.582</td>
+                      <td className="px-1 py-2 text-center text-[#999999] border-r border-gray-700 text-xs">0.807</td>
+                      <td className="px-1 py-2 text-center text-[#999999] border-r border-gray-700 text-xs">0.823</td>
+                      <td className="px-1 py-2 text-center text-[#999999] text-xs">0.926</td>
+                    </tr>
+                    <tr className="bg-gray-800">
+                      <td className="px-2 py-3 text-white font-medium border-r border-gray-700 text-sm">Lynx (ours)</td>
+                      <td className="px-1 py-2 text-center text-white font-bold border-r border-gray-700 text-xs">0.722</td>
+                      <td className="px-1 py-2 text-center text-white font-bold border-r border-gray-700 text-xs">0.871</td>
+                      <td className="px-1 py-2 text-center text-[#999999] border-r border-gray-700 text-xs"><span className="underline">0.837</span></td>
+                      <td className="px-1 py-2 text-center text-white font-bold text-xs">0.956</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          {/* Radar Chart */}
+          <div>
+            <h4 className="text-lg font-medium mb-6 text-center">Performance Radar Chart</h4>
+            <div className="flex justify-center">
+              <img
+                src={`${base}assets/radar.png`}
+                alt="Performance Radar Chart Comparison"
+                className="max-w-full h-auto rounded-lg"
+                style={{ maxHeight: '600px' }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
       <section className="max-w-[1920px] mx-auto px-4 md:px-[10%] py-20 mt-20 relative">
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none" />
