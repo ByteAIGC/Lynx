@@ -81,77 +81,59 @@ export default function App() {
           </p>
         </div>
         
-        <div className="video-grid-large">
+        <div className="video-grid video-grid-3">
           <div className="prompt-wrap">
-            <div className="video-container-large">
-              <video muted loop autoPlay playsInline>
-                <source src={`${base}assets/main/0023.mp4`} type="video/mp4" />
-              </video>
-            </div>
-            <div className="prompt-large">A musician playing a violin in a candlelit room, their face reflecting deep emotion and passion as they perform a heartfelt melody.</div>
-          </div>
-          
-          <div className="prompt-wrap">
-            <div className="video-container-large">
+            <div className="video-container">
               <video muted loop autoPlay playsInline>
                 <source src={`${base}assets/main/0021.mp4`} type="video/mp4" />
               </video>
             </div>
-            <div className="prompt-large">An astronaut floating in zero gravity inside a spaceship, reaching out to grab a floating apple while smiling with curiosity and wonder.</div>
+            <div className="prompt">An astronaut floating in zero gravity inside a spaceship, reaching out to grab a floating apple while smiling with curiosity and wonder.</div>
           </div>
-          
+
           <div className="prompt-wrap">
-            <div className="video-container-large">
+            <div className="video-container">
               <video muted loop autoPlay playsInline>
                 <source src={`${base}assets/main/0017.mp4`} type="video/mp4" />
               </video>
             </div>
-            <div className="prompt-large">In a bustling urban street at dusk, a curious person stands near vibrant neon signs, their expression reflecting a blend of determination and wonder. They wear casual modern attire with intricate patterns, illuminated by the warm glow of city lights.</div>
+            <div className="prompt">In a bustling urban street at dusk, a curious person stands near vibrant neon signs, their expression reflecting a blend of determination and wonder. They wear casual modern attire with intricate patterns, illuminated by the warm glow of city lights.</div>
           </div>
-          
+
           <div className="prompt-wrap">
-            <div className="video-container-large">
+            <div className="video-container">
               <video muted loop autoPlay playsInline>
                 <source src={`${base}assets/main/0015.mp4`} type="video/mp4" />
               </video>
             </div>
-            <div className="prompt-large">In a bustling open-air market filled with vibrant colors and aromatic spices, an animated person engages enthusiastically with their surroundings, exploring stalls brimming with exotic goods and handcrafted treasures.</div>
+            <div className="prompt">In a bustling open-air market filled with vibrant colors and aromatic spices, an animated person engages enthusiastically with their surroundings, exploring stalls brimming with exotic goods and handcrafted treasures.</div>
           </div>
-          
+
           <div className="prompt-wrap">
-            <div className="video-container-large">
+            <div className="video-container">
               <video muted loop autoPlay playsInline>
                 <source src={`${base}assets/main/0014.mp4`} type="video/mp4" />
               </video>
             </div>
-            <div className="prompt-large">A person sits beside a large window in a cozy café while city lights blur and shimmer through the steady rain outside. They glance at their phone and react with a bright laugh, engaging with something off-screen.</div>
+            <div className="prompt">A person sits beside a large window in a cozy café while city lights blur and shimmer through the steady rain outside. They glance at their phone and react with a bright laugh, engaging with something off-screen.</div>
           </div>
-          
+
           <div className="prompt-wrap">
-            <div className="video-container-large">
+            <div className="video-container">
               <video muted loop autoPlay playsInline>
                 <source src={`${base}assets/main/0013.mp4`} type="video/mp4" />
               </video>
             </div>
-            <div className="prompt-large">A person sits at a wooden table in a warmly lit kitchen, joyfully eating a plate of steaming dumplings. The camera frames them from the waist up as they lift each dumpling with chopsticks, dipping it into sauce before taking a bite.</div>
+            <div className="prompt">A person sits at a wooden table in a warmly lit kitchen, joyfully eating a plate of steaming dumplings. The camera frames them from the waist up as they lift each dumpling with chopsticks, dipping it into sauce before taking a bite.</div>
           </div>
-          
+
           <div className="prompt-wrap">
-            <div className="video-container-large">
-              <video muted loop autoPlay playsInline>
-                <source src={`${base}assets/main/0010.mp4`} type="video/mp4" />
-              </video>
-            </div>
-            <div className="prompt-large">A person dives into a clear lake and resurfaces smiling. The camera dips underwater briefly, then follows their wet face in a close-up as water drips from their hair.</div>
-          </div>
-          
-          <div className="prompt-wrap">
-            <div className="video-container-large">
+            <div className="video-container">
               <video muted loop autoPlay playsInline>
                 <source src={`${base}assets/main/0005.mp4`} type="video/mp4" />
               </video>
             </div>
-            <div className="prompt-large">A person plays a handheld video game on a sunny balcony. The camera stays mid-frame as they lean forward in concentration, tap buttons rapidly, then suddenly cheer and pump a fist in victory.</div>
+            <div className="prompt">A person plays a handheld video game on a sunny balcony. The camera stays mid-frame as they lean forward in concentration, tap buttons rapidly, then suddenly cheer and pump a fist in victory.</div>
           </div>
         </div>
       </section>
@@ -202,17 +184,6 @@ export default function App() {
               <div className="prompt-wrap">
                 <div className="video-container">
                   <video muted loop autoPlay playsInline>
-                    <source src={`${base}assets/gallery/0016.mp4`} type="video/mp4" />
-                  </video>
-                </div>
-                <div className="prompt">On a picturesque rural farm bathed in the soft light of early morning, a thoughtful person tends to a blooming garden with serene concentration and deep respect for nature.</div>
-              </div>
-            </div>
-            
-            <div className="video-scroll-item" style={{ width: '480px' }}>
-              <div className="prompt-wrap">
-                <div className="video-container">
-                  <video muted loop autoPlay playsInline>
                     <source src={`${base}assets/gallery/0002.mp4`} type="video/mp4" />
                   </video>
                 </div>
@@ -224,32 +195,68 @@ export default function App() {
               <div className="prompt-wrap">
                 <div className="video-container">
                   <video muted loop autoPlay playsInline>
+                    <source src={`${base}assets/gallery/0026.mp4`} type="video/mp4" />
+                  </video>
+                </div>
+                <div className="prompt">A person waits at a crosswalk in an urban setting just after sunset, glancing at the traffic light and shifting their bag strap while colored street lights flicker subtly on their skin.</div>
+              </div>
+            </div>
+
+            <div className="video-scroll-item" style={{ width: '480px' }}>
+              <div className="prompt-wrap">
+                <div className="video-container">
+                  <video muted loop autoPlay playsInline>
+                    <source src={`${base}assets/gallery/0003.mp4`} type="video/mp4" />
+                  </video>
+                </div>
+                <div className="prompt">A person stands on a city balcony overlooking quiet streets at dusk. The camera starts at mid-torso level and slowly moves inward as they sip from a mug, their gaze shifting between the horizon and something below.</div>
+              </div>
+            </div>
+
+            <div className="video-scroll-item" style={{ width: '480px' }}>
+              <div className="prompt-wrap">
+                <div className="video-container">
+                  <video muted loop autoPlay playsInline>
+                    <source src={`${base}assets/gallery/0011.mp4`} type="video/mp4" />
+                  </video>
+                </div>
+                <div className="prompt">A person packs a hiking backpack, pulling items from the table and stuffing them inside. The camera follows at half-body level as they zip compartments, strap in a water bottle, and hoist the bag briefly to test the weight.</div>
+              </div>
+            </div>
+
+            <div className="video-scroll-item" style={{ width: '480px' }}>
+              <div className="prompt-wrap">
+                <div className="video-container">
+                  <video muted loop autoPlay playsInline>
                     <source src={`${base}assets/gallery/0022.mp4`} type="video/mp4" />
                   </video>
                 </div>
                 <div className="prompt">A chef passionately tossing vegetables in a sizzling wok, their face glowing with concentration and pride as flames briefly flare up.</div>
               </div>
             </div>
-            
+
             <div className="video-scroll-item" style={{ width: '480px' }}>
               <div className="prompt-wrap">
                 <div className="video-container">
                   <video muted loop autoPlay playsInline>
-                    <source src={`${base}assets/gallery/0012.mp4`} type="video/mp4" />
+                    <source src={`${base}assets/gallery/1026.mp4`} type="video/mp4" />
                   </video>
                 </div>
-                <div className="prompt">A person with a delicate flower crown stands amidst a field of gently swaying wildflowers, eyes sparkling with a serene gaze and a faint smile suggesting peaceful contentment.</div>
+                <div className="prompt">A person rides a spinning swing at a colorful outdoor amusement park beneath a bright sky. The camera locks closely onto their face as the ride gains speed, subtly tilting and rotating with their motion. Their mouth opens in exhilaration, and their face shifts from excitement to laughter. They lift their chin slightly, adjust posture with a confident lean, and briefly close their eyes as the swing peaks. The blurred background spins with colorful banners and lights, enhancing the sensation of motion. The person's appearance remains tidy, with no distracting movement from hair.</div>
               </div>
             </div>
+
             
+            
+
             <div className="video-scroll-item" style={{ width: '480px' }}>
               <div className="prompt-wrap">
                 <div className="video-container">
                   <video muted loop autoPlay playsInline>
-                    <source src={`${base}assets/gallery/0026.mp4`} type="video/mp4" />
+                    <source src={`${base}assets/main/0023.mp4`} type="video/mp4" />
                   </video>
                 </div>
-                <div className="prompt">A person waits at a crosswalk in an urban setting just after sunset, glancing at the traffic light and shifting their bag strap while colored street lights flicker subtly on their skin.</div>
+                <div className="prompt">A musician playing a violin in a candlelit room, their face reflecting deep emotion and passion as they perform a heartfelt melody.</div>
               </div>
             </div>
           </div>
@@ -269,16 +276,28 @@ export default function App() {
           </p>
         </div>
         
-        <div className="flex flex-col gap-6 items-center">
+        <div className="flex flex-col gap-8 items-center">
           <div className="video-container">
             <video autoPlay playsInline muted loop>
               <source src={`${base}assets/multiscenes/0086.mp4`} type="video/mp4" />
             </video>
           </div>
-          
+
           <div className="video-container">
             <video autoPlay playsInline muted loop>
               <source src={`${base}assets/multiscenes/0778.mp4`} type="video/mp4" />
+            </video>
+          </div>
+
+          <div className="video-container">
+            <video autoPlay playsInline muted loop>
+              <source src={`${base}assets/multiscenes/0828.mp4`} type="video/mp4" />
+            </video>
+          </div>
+
+          <div className="video-container">
+            <video autoPlay playsInline muted loop>
+              <source src={`${base}assets/multiscenes/0335.mp4`} type="video/mp4" />
             </video>
           </div>
         </div>
@@ -350,7 +369,7 @@ export default function App() {
           </div>
           
           <div className="text-sm font-light text-[#999999]">
-            Intelligent Creation Lab, ByteDance
+            Intelligent Creation, ByteDance
           </div>
           
           <div className="text-xs font-light text-[#666666] mt-8">
