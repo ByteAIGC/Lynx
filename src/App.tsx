@@ -314,14 +314,14 @@ export default function App() {
           achieving state-of-the-art results in identity preservation and overall video quality.
         </p>
 
-        <div className="space-y-12">
+        <div>
           {/* Tables Row */}
-          <div className="flex flex-col md:flex-row gap-4">
+          <div className="flex flex-col md:flex-row gap-4 mb-12">
             {/* Table 1: Face Resemblance */}
             <div className="md:w-1/2 flex-shrink-0">
               <h4 className="text-base font-medium mb-4 text-center">Face Resemblance</h4>
               <div className="overflow-x-auto">
-                <table className="w-full bg-gray-900 border border-gray-700 rounded-lg text-xs">
+                <table className="mx-auto bg-gray-900 border border-gray-700 rounded-lg text-xs" style={{width: '40%'}}>
                   <thead>
                     <tr className="border-b border-gray-700">
                       <th className="px-2 py-3 text-left font-medium text-white border-r border-gray-700 text-xs">Model</th>
@@ -376,7 +376,7 @@ export default function App() {
             <div className="md:w-1/2 flex-shrink-0">
               <h4 className="text-base font-medium mb-4 text-center">Overall Performance</h4>
               <div className="overflow-x-auto">
-                <table className="w-full bg-gray-900 border border-gray-700 rounded-lg text-xs">
+                <table className="mx-auto bg-gray-900 border border-gray-700 rounded-lg text-xs" style={{width: '40%'}}>
                   <thead>
                     <tr className="border-b border-gray-700">
                       <th className="px-2 py-3 text-left font-medium text-white border-r border-gray-700 text-xs">Model</th>
@@ -435,17 +435,18 @@ export default function App() {
             </div>
           </div>
 
-          {/* Radar Chart */}
-          <div>
-            <h4 className="text-lg font-medium mb-6 text-center">Performance Radar Chart</h4>
-            <div className="flex justify-center">
-              <img
-                src={`${base}assets/radar.png`}
-                alt="Performance Radar Chart Comparison"
-                className="max-w-full h-auto rounded-lg"
-                style={{ maxHeight: '600px' }}
-              />
-            </div>
+        </div>
+
+        {/* Radar Chart */}
+        <div className="mt-20">
+          <h4 className="text-lg font-medium mb-6 text-center">Performance Radar Chart</h4>
+          <div className="flex justify-center">
+            <img
+              src={`${base}assets/radar.png`}
+              alt="Performance Radar Chart Comparison"
+              className="max-w-full h-auto rounded-lg"
+              style={{ maxHeight: '600px' }}
+            />
           </div>
         </div>
       </section>
