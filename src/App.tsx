@@ -26,9 +26,9 @@ export default function App() {
       {/* Navigation Bar */}
       <nav className="navigation-bar">
         <div className="navigation-content">
-          <div className="navigation-title">
+          {/* <div className="navigation-title">
             <strong>Lynx:</strong> Towards High-Fidelity Personalized Video Generation
-          </div>
+          </div> */}
           <div className="navigation-buttons">
             <Button className="bg-transparent text-white hover:bg-white hover:text-black transition-colors px-4 py-2 h-auto border border-white/20">
               <FileText className="w-4 h-4 mr-2 text-white" />
@@ -51,22 +51,38 @@ export default function App() {
         </div>
       </nav>
 
+      {/* Teaser Description Section */}
+      <section className="teaser-description-section">
+        <div className="teaser-description-content">
+          <h1 className="teaser-main-title">
+            <strong>Lynx</strong>
+          </h1>
+          <h2 className="teaser-subtitle">
+            Towards High-Fidelity Personalized Video Generation
+          </h2>
+          <p className="teaser-description">
+            We present Lynx, a high-fidelity model for personalized video synthesis from a single input image.
+            Built on an open-source Diffusion Transformer (DiT) foundation model, Lynx introduces two
+            lightweight adapters to ensure identity fidelity. The ID-adapter employs a Perceiver Resampler to
+            convert ArcFace-derived facial embeddings into compact identity tokens for conditioning, while the
+            Ref-adapter integrates dense VAE features from a frozen reference pathway, injecting fine-grained
+            details across all transformer layers through cross-attention. These modules collectively enable
+            robust identity preservation while maintaining temporal coherence and visual realism. Through
+            evaluation on a curated benchmark of 40 subjects and 20 unbiased prompts, which yielded 800
+            test cases, Lynx has demonstrated superior face resemblance, competitive prompt following, and
+            strong video quality, thereby advancing the state of personalized video generation.
+          </p>
+        </div>
+      </section>
+
       {/* Video Teaser Section */}
       <section className="video-teaser-section">
         <div className="video-teaser-background">
           <video muted loop autoPlay playsInline>
-            <source src={`${base}assets/teaser.mp4`} type="video/mp4" />
+            <source src={`${base}assets/teaser_v2.mp4`} type="video/mp4" />
           </video>
         </div>
         <div className="video-teaser-overlay"></div>
-        <div className="video-teaser-content">
-          <h1 className="video-teaser-title">
-            <strong>Lynx</strong>
-          </h1>
-          <p className="video-teaser-subtitle">
-          Our latest high-fidelity video generation model for personalized synthesis from a single image. It leverages ID- and Ref-adapters to preserve identity and enrich spatial detail, achieving strong face resemblance, and smooth motion across diverse subjects and prompts.
-          </p>
-        </div>
       </section>
 
       {/* Main Generation Examples - Full Width with Large Videos */}
