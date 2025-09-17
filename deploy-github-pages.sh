@@ -18,17 +18,21 @@ if [ ! -d .git ]; then
   log "Initializing git repo…"
   git init
 fi
+
+# Store original remote URL to restore later
+ORIGINAL_REMOTE=""
 if git remote get-url origin >/dev/null 2>&1; then
-  cur="$(git remote get-url origin)"
+  ORIGINAL_REMOTE="$(git remote get-url origin)"
+  cur="$ORIGINAL_REMOTE"
   if [ "$cur" != "$REPO_URL" ]; then
-    log "Updating remote origin to $REPO_URL (was $cur)…"
+    log "Temporarily updating remote origin to $REPO_URL (was $cur)…"
     git remote set-url origin "$REPO_URL"
   fi
 else
   log "Adding remote origin $REPO_URL…"
   git remote add origin "$REPO_URL"
 fi
-ok "Origin: $(git remote get-url origin)"
+ok "Deploy origin: $(git remote get-url origin)"
 
 # 2) Install deps if needed
 if [ ! -d node_modules ]; then
@@ -80,5 +84,12 @@ git push -f origin "$PUBLISH_BRANCH"
 # 8) Return to your source branch and clean up the orphan state locally
 git checkout -f "$CURRENT_BRANCH"
 git branch -D "$PUBLISH_BRANCH" 2>/dev/null || true
+
+# 9) Restore original remote if it was changed
+if [ -n "$ORIGINAL_REMOTE" ] && [ "$ORIGINAL_REMOTE" != "$REPO_URL" ]; then
+  log "Restoring original remote to $ORIGINAL_REMOTE…"
+  git remote set-url origin "$ORIGINAL_REMOTE"
+  ok "Remote restored to: $(git remote get-url origin)"
+fi
 
 ok "Deployed!  https://byteaigc.github.io/Lynx/"
