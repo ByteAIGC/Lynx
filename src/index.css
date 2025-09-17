@@ -4335,6 +4335,15 @@ html {
   line-height: 1.4;
 }
 
+/* Section descriptions - same as teaser description */
+.section-description {
+  font-size: clamp(15px, 0.88vw, 13px);
+  font-weight: 300;
+  color: #999999;
+  line-height: 1.4;
+  margin-bottom: 2rem;
+}
+
 .section-padding {
   max-width: 1920px;
   margin: 100px auto 0;

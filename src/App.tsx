@@ -2,11 +2,20 @@ import { Button } from "./components/ui/button";
 import { Badge } from "./components/ui/badge";
 import { ImageWithFallback } from "./components/figma/ImageWithFallback";
 import { FileText, Github, Play, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 export default function App() {
   const highResScrollRef = useRef<HTMLDivElement>(null);
+  const diverseScrollRef = useRef<HTMLDivElement>(null);
   const base = import.meta.env.BASE_URL;
+
+  // Diverse Generation videos
+  const diverseVideos = [
+    { src: "assets/multiscenes/0086.mp4", title: "Subject 1", description: "Multiple diverse scenarios" },
+    { src: "assets/multiscenes/0778.mp4", title: "Subject 2", description: "Multiple diverse scenarios" },
+    { src: "assets/multiscenes/0828.mp4", title: "Subject 3", description: "Multiple diverse scenarios" },
+    { src: "assets/multiscenes/0335.mp4", title: "Subject 4", description: "Multiple diverse scenarios" }
+  ];
 
   const scrollHighResLeft = () => {
     if (highResScrollRef.current) {
@@ -17,6 +26,25 @@ export default function App() {
   const scrollHighResRight = () => {
     if (highResScrollRef.current) {
       highResScrollRef.current.scrollBy({ left: 500, behavior: 'smooth' });
+    }
+  };
+
+  const scrollDiverseLeft = () => {
+    if (diverseScrollRef.current) {
+      diverseScrollRef.current.scrollBy({ left: -diverseScrollRef.current.offsetWidth, behavior: 'smooth' });
+    }
+  };
+
+  const scrollDiverseRight = () => {
+    if (diverseScrollRef.current) {
+      diverseScrollRef.current.scrollBy({ left: diverseScrollRef.current.offsetWidth, behavior: 'smooth' });
+    }
+  };
+
+  const scrollToVideo = (index: number) => {
+    if (diverseScrollRef.current) {
+      const scrollAmount = index * diverseScrollRef.current.offsetWidth;
+      diverseScrollRef.current.scrollTo({ left: scrollAmount, behavior: 'smooth' });
     }
   };
 
@@ -91,8 +119,8 @@ export default function App() {
           <h3 className="text-xl font-semibold py-5 mb-5">
             Identity-Preserving Video Generation
           </h3>
-          <p className="text-base font-light text-[#999999] leading-relaxed mb-8">
-            Lynx generates high-quality videos while preserving the precise identity characteristics from a single input image. 
+          <p className="section-description">
+            Lynx generates high-quality videos while preserving the precise identity characteristics from a single input image.
             Our method maintains facial features, expressions, and identity consistency throughout the generated video sequence. Lynx is trained from Wan 2.1 and can be adopted into existing echosystems.<em>Hover over videos to see the generation prompts.</em>
           </p>
         </div>
@@ -155,13 +183,12 @@ export default function App() {
       </section>
 
       {/* High Resolution Examples - Horizontal Scrolling */}
-      <section className="max-w-[1920px] mx-auto px-4 md:px-[10%] mb-[100px]">
+      <section className="max-w-[1920px] mx-auto px-4 md:px-[10%] mb-[100px] mt-[100px]">
         <h3 className="text-xl font-semibold py-5 mb-5">
           Gallery
         </h3>
-        <p className="text-base font-light text-[#999999] leading-relaxed mb-8">
-          Explore our gallery of diverse video generations showcasing various scenarios and characters. 
-          <em>Scroll horizontally to explore more examples.</em>
+        <p className="section-description">
+          Explore our gallery of diverse video generations showcasing various scenarios and characters. <em>Scroll horizontally to explore more examples.</em>
         </p>
         
         <div className="video-scroll-container">
@@ -286,35 +313,44 @@ export default function App() {
           <h3 className="text-xl font-semibold py-5 mb-5">
             Diverse Generation from Single Identity
           </h3>
-          <p className="text-base font-light text-[#999999] leading-relaxed mb-8">
-            Given a single identity image, Lynx can generate diverse scenarios and expressions 
+          <p className="section-description">
+            Given a single identity image, Lynx can generate diverse scenarios and expressions
             while maintaining the core identity characteristics.
+            <em> Use the navigation buttons to explore different subjects.</em>
           </p>
         </div>
-        
-        <div className="flex flex-col gap-8 items-center">
-          <div className="video-container">
-            <video autoPlay playsInline muted loop>
-              <source src={`${base}assets/multiscenes/0086.mp4`} type="video/mp4" />
-            </video>
+
+        <div className="video-scroll-container">
+          {/* Navigation Controls */}
+          <button className="scroll-indicator left" onClick={scrollDiverseLeft}>
+            <ChevronLeft />
+          </button>
+          <button className="scroll-indicator right" onClick={scrollDiverseRight}>
+            <ChevronRight />
+          </button>
+
+          {/* Scrollable Video Display */}
+          <div className="video-scroll-wrapper" ref={diverseScrollRef}>
+            {diverseVideos.map((video, index) => (
+              <div key={index} className="video-scroll-item" style={{ width: '100%', flexShrink: 0 }}>
+                <div className="video-container">
+                  <video muted loop autoPlay playsInline>
+                    <source src={`${base}${video.src}`} type="video/mp4" />
+                  </video>
+                </div>
+              </div>
+            ))}
           </div>
 
-          <div className="video-container">
-            <video autoPlay playsInline muted loop>
-              <source src={`${base}assets/multiscenes/0778.mp4`} type="video/mp4" />
-            </video>
-          </div>
-
-          <div className="video-container">
-            <video autoPlay playsInline muted loop>
-              <source src={`${base}assets/multiscenes/0828.mp4`} type="video/mp4" />
-            </video>
-          </div>
-
-          <div className="video-container">
-            <video autoPlay playsInline muted loop>
-              <source src={`${base}assets/multiscenes/0335.mp4`} type="video/mp4" />
-            </video>
+          {/* Video Indicators */}
+          <div className="flex justify-center gap-2 mt-4">
+            {diverseVideos.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => scrollToVideo(index)}
+                className="w-3 h-3 rounded-full bg-white/30 hover:bg-white/50 transition-colors"
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -325,7 +361,7 @@ export default function App() {
         <h3 className="text-xl font-semibold py-5 mb-5">
           Quantitative Evaluation
         </h3>
-        <p className="text-base font-light text-[#999999] leading-relaxed mb-8">
+        <p className="section-description">
           Quantitative comparison demonstrates Lynx's superior performance across multiple evaluation metrics,
           achieving state-of-the-art results in identity preservation and overall video quality.
         </p>
