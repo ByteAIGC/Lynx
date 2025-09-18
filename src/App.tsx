@@ -11,10 +11,10 @@ export default function App() {
 
   // Diverse Generation videos
   const diverseVideos = [
-    { src: "assets/multiscenes/0086.mp4", title: "Subject 1", description: "Multiple diverse scenarios" },
     { src: "assets/multiscenes/0778.mp4", title: "Subject 2", description: "Multiple diverse scenarios" },
     { src: "assets/multiscenes/0828.mp4", title: "Subject 3", description: "Multiple diverse scenarios" },
-    { src: "assets/multiscenes/0335.mp4", title: "Subject 4", description: "Multiple diverse scenarios" }
+    { src: "assets/multiscenes/0335.mp4", title: "Subject 4", description: "Multiple diverse scenarios" },
+    { src: "assets/multiscenes/0086.mp4", title: "Subject 1", description: "Multiple diverse scenarios" },
   ];
 
   const scrollHighResLeft = () => {
@@ -104,21 +104,20 @@ export default function App() {
       </section>
 
       {/* Video Teaser Section */}
-      <section className="video-teaser-section">
-        <div className="video-teaser-background">
+      <section className="section-fullwidth" style={{ marginBottom: '150px' }}>
+        <div className="video-container-large">
           <video muted loop autoPlay playsInline>
             <source src={`${base}assets/teaser_v2.mp4`} type="video/mp4" />
           </video>
         </div>
-        <div className="video-teaser-overlay"></div>
       </section>
 
       {/* Quantitative Evaluation */}
       <section className="max-w-[1920px] mx-auto px-4 md:px-[10%] mb-[100px]">
-        <h3 className="text-xl font-semibold py-5 mb-5">
+        <h3 className="text-xl font-semibold py-5 mb-5 text-left">
           Quantitative Evaluation
         </h3>
-        <p className="section-description">
+        <p className="section-description text-left">
           Quantitative comparison demonstrates Lynx's superior performance across multiple evaluation metrics,
           achieving state-of-the-art results in identity preservation and overall video quality.
         </p>
@@ -127,7 +126,7 @@ export default function App() {
           {/* Merged Performance Table */}
           <div className="flex justify-center mb-8">
             <div className="overflow-x-auto w-full">
-              <table className="bg-gray-900 border border-gray-700 rounded-lg text-base w-full max-w-none mx-auto" style={{width: '56.25%'}}>
+              <table className="bg-gray-900 border border-gray-700 rounded-lg text-base w-3/4 mx-auto">
                 <thead>
                   <tr className="border-b border-gray-700">
                     <th className="px-6 py-5 text-center font-medium text-white border-r border-gray-700 text-base" rowSpan={2}>Model</th>
@@ -228,10 +227,10 @@ export default function App() {
       {/* Main Generation Examples - Full Width with Large Videos */}
       <section className="section-fullwidth mb-[100px]">
         <div className="px-4 md:px-[10%]">
-          <h3 className="text-xl font-semibold py-5 mb-5">
+          <h3 className="text-xl font-semibold py-5 mb-5 text-left">
             Identity-Preserving Video Generation
           </h3>
-          <p className="section-description">
+          <p className="section-description text-left">
             Lynx generates high-quality videos while preserving the precise identity characteristics from a single input image.
             Our method maintains facial features, expressions, and identity consistency throughout the generated video sequence. Lynx is trained from Wan 2.1 and can be adopted into existing echosystems.<em>Hover over videos to see the generation prompts.</em>
           </p>
@@ -296,10 +295,10 @@ export default function App() {
 
       {/* High Resolution Examples - Horizontal Scrolling */}
       <section className="max-w-[1920px] mx-auto px-4 md:px-[10%] mb-[100px] mt-[100px]">
-        <h3 className="text-xl font-semibold py-5 mb-5">
+        <h3 className="text-xl font-semibold py-5 mb-5 text-left">
           Gallery
         </h3>
-        <p className="section-description">
+        <p className="section-description text-left">
           Explore our gallery of diverse video generations showcasing various scenarios and characters. <em>Scroll horizontally to explore more examples.</em>
         </p>
         
@@ -420,12 +419,12 @@ export default function App() {
 
 
       {/* Diverse Generation */}
-      <section className="mb-[100px]">
+      <section className="section-fullwidth mb-[100px]">
         <div className="max-w-[1920px] mx-auto px-4 md:px-[10%]">
-          <h3 className="text-xl font-semibold py-5 mb-5">
+          <h3 className="text-xl font-semibold py-5 mb-5 text-left">
             Diverse Generation from Single Identity
           </h3>
-          <p className="section-description">
+          <p className="section-description text-left">
             Given a single identity image, Lynx can generate diverse scenarios and expressions
             while maintaining the core identity characteristics.
             <em> Use the navigation buttons to explore different subjects.</em>
@@ -473,9 +472,9 @@ export default function App() {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none" />
         
         <div className="text-center space-y-8 relative z-10">
-          <h4 className="text-lg font-medium">Research Team</h4>
+          <h4 className="text-xl font-medium">Research Team</h4>
           
-          <div className="space-y-2 text-sm font-light">
+          <div className="space-y-2 text-base font-light">
             <div>
               <a
                 href="https://ssangx.github.io/"
@@ -532,7 +531,7 @@ export default function App() {
             *Equal Contribution
           </div>
 
-          <div className="text-sm font-light text-[#999999]">
+          <div className="text-base font-light text-[#999999]">
             Intelligent Creation, ByteDance
           </div>
           

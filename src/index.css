@@ -83,7 +83,7 @@
     --text-base--line-height: calc(1.5 / 1);
     --text-lg: 1.125rem;
     --text-lg--line-height: calc(1.75 / 1.125);
-    --text-xl: 1.25rem;
+    --text-xl: 1.5rem;
     --text-xl--line-height: calc(1.75 / 1.25);
     --font-weight-light: 300;
     --font-weight-normal: 400;
@@ -4243,6 +4243,7 @@ html {
   align-items: center;
   gap: 12px;
   display: flex;
+  justify-content: flex-start;
 }
 
 .navigation-logo {
@@ -4268,12 +4269,8 @@ html {
 }
 
 .video-teaser-background {
-  z-index: 1;
   width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+  height: auto;
 }
 
 .video-teaser-background video {
@@ -4297,13 +4294,12 @@ html {
 /* Teaser Description Section */
 .teaser-description-section {
   width: 100%;
-  padding: 20px 4% 0;
-  margin-bottom: -120px;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 20px 10% 0;
 }
 
 .teaser-description-content {
-  max-width: 1400px;
-  margin: 0 auto;
   text-align: left;
 }
 
@@ -4311,7 +4307,7 @@ html {
   color: #fff;
   margin-top: 20px;
   margin-bottom: 30px;
-  font-size: clamp(66px, 8.8vw, 66px);
+  font-size: clamp(72px, 8.8vw, 66px);
   font-weight: 700;
   line-height: 0.85;
   letter-spacing: -0.02em;
@@ -4320,7 +4316,7 @@ html {
 .teaser-subtitle {
   color: #e0e0e0;
   margin-bottom: 50px;
-  font-size: clamp(22px, 1.65vw, 22px);
+  font-size: clamp(24px, 1.65vw, 22px);
   font-weight: 300;
   line-height: 1.0;
   max-width: 60%;
@@ -4330,14 +4326,14 @@ html {
   color: #b0b0b0;
   max-width: 95%;
   margin-bottom: 0px;
-  font-size: clamp(15px, 0.88vw, 13px);
+  font-size: clamp(16px, 0.88vw, 13px);
   font-weight: 300;
   line-height: 1.4;
 }
 
 /* Section descriptions - same as teaser description */
 .section-description {
-  font-size: clamp(15px, 0.88vw, 13px);
+  font-size: clamp(16px, 0.88vw, 13px);
   font-weight: 300;
   color: #999999;
   line-height: 1.4;
@@ -4462,17 +4458,12 @@ html {
 }
 
 .video-container-large {
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 12 / 5;
   background: #111;
-  border-radius: 16px;
+  border-radius: 0px;
   transition: transform .3s, box-shadow .3s;
   position: relative;
   overflow: hidden;
-}
-
-.video-container-large:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 35px #ffffff26;
 }
 
 .video-container-large video {
